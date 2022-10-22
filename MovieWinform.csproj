@@ -1,0 +1,2489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE358CE1-72D5-4DBD-BAA6-6A44965C42DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MovieWinform</RootNamespace>
+    <AssemblyName>MovieWinform</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>716AB1E2925ECD763125E35A2FD123A133B326FB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MovieWinform_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1484.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BUS\ActorBUS.cs" />
+    <Compile Include="BUS\DirectorBUS.cs" />
+    <Compile Include="BUS\FilmBUS.cs" />
+    <Compile Include="BUS\GenreBUS.cs" />
+    <Compile Include="BUS\HashTagBUS.cs" />
+    <Compile Include="BUS\LanguageBUS.cs" />
+    <Compile Include="BUS\NationBUS.cs" />
+    <Compile Include="BUS\PlanBUS.cs" />
+    <Compile Include="BUS\UserBUS.cs" />
+    <Compile Include="DAO\GenericDAO.cs" />
+    <Compile Include="GUI\Forms\FrmFaceID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmFaceID.Designer.cs">
+      <DependentUpon>FrmFaceID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmLoading.Designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyActorInMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyActorInMovie.Designer.cs">
+      <DependentUpon>FrmModifyActorInMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyDirectorInMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyDirectorInMovie.designer.cs">
+      <DependentUpon>FrmModifyDirectorInMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyGenreInMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyGenreInMovie.designer.cs">
+      <DependentUpon>FrmModifyGenreInMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyHashTagInMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmModifyHashTagInMovie.designer.cs">
+      <DependentUpon>FrmModifyHashTagInMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCFilm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCFilm.designer.cs">
+      <DependentUpon>UCFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCHashTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCHashTag.designer.cs">
+      <DependentUpon>UCHashTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCProfile.designer.cs">
+      <DependentUpon>UCProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCAboutUs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCAboutUs.Designer.cs">
+      <DependentUpon>UCAboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCActor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCActor.Designer.cs">
+      <DependentUpon>UCActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCDashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCDashBoard.Designer.cs">
+      <DependentUpon>UCDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCDirector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCDirector.Designer.cs">
+      <DependentUpon>UCDirector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCSubscription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCSubscription.Designer.cs">
+      <DependentUpon>UCSubscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCUser.designer.cs">
+      <DependentUpon>UCUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCGenre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCGenre.Designer.cs">
+      <DependentUpon>UCGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCLanguage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCLanguage.Designer.cs">
+      <DependentUpon>UCLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\DanhGiaPhim.cs" />
+    <Compile Include="Model\DaoDien.cs" />
+    <Compile Include="Model\DatNuoc.cs" />
+    <Compile Include="Model\DienVien.cs" />
+    <Compile Include="Model\DienVienDongPhim.cs" />
+    <Compile Include="Model\GoiDichVu.cs" />
+    <Compile Include="Model\HashTag.cs" />
+    <Compile Include="Model\MovieWinformDBcontext.cs" />
+    <Compile Include="Model\NgonNgu.cs" />
+    <Compile Include="Model\NguoiDung.cs" />
+    <Compile Include="Model\PhieuDangKy.cs" />
+    <Compile Include="Model\Phim.cs" />
+    <Compile Include="Model\test.cs" />
+    <Compile Include="Model\TheLoai.cs" />
+    <Compile Include="GUI\UserControls\UCNation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCNation.Designer.cs">
+      <DependentUpon>UCNation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCPlan.Designer.cs">
+      <DependentUpon>UCPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MovieWebDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MovieWebDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\UserControls\UCStatical.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UCStatical.Designer.cs">
+      <DependentUpon>UCStatical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Ulitis\DelegateDangNhap.cs" />
+    <EmbeddedResource Include="GUI\Forms\FrmFaceID.resx">
+      <DependentUpon>FrmFaceID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmModifyActorInMovie.resx">
+      <DependentUpon>FrmModifyActorInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmModifyDirectorInMovie.resx">
+      <DependentUpon>FrmModifyDirectorInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmModifyGenreInMovie.resx">
+      <DependentUpon>FrmModifyGenreInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmModifyHashTagInMovie.resx">
+      <DependentUpon>FrmModifyHashTagInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCAboutUs.resx">
+      <DependentUpon>UCAboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCActor.resx">
+      <DependentUpon>UCActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCDashBoard.resx">
+      <DependentUpon>UCDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCDirector.resx">
+      <DependentUpon>UCDirector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCFilm.resx">
+      <DependentUpon>UCFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCGenre.resx">
+      <DependentUpon>UCGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCHashTag.resx">
+      <DependentUpon>UCHashTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCLanguage.resx">
+      <DependentUpon>UCLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCNation.resx">
+      <DependentUpon>UCNation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCPlan.resx">
+      <DependentUpon>UCPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\UserControls\UCProfile.resx">
+      <DependentUpon>UCProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCStatical.resx">
+      <DependentUpon>UCStatical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCSubscription.resx">
+      <DependentUpon>UCSubscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UCUser.resx">
+      <DependentUpon>UCUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MovieWebDataSet.xsc">
+      <DependentUpon>MovieWebDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MovieWebDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MovieWebDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MovieWebDataSet.xss">
+      <DependentUpon>MovieWebDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\UCDashBoard.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\thai.jpg" />
+    <None Include="Resources\tai.jpg" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\a1.jpg" />
+    <Content Include="Logo.ico" />
+    <Content Include="Resources\haarcascade_frontalface_alt.xml" />
+    <Content Include="Resources\MoviePosters\a%281%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2810%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28100%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28101%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28102%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28103%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28104%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28105%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28106%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28107%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28108%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28109%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2811%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28110%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28111%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28112%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28113%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28114%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28115%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28116%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28117%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28118%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28119%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2812%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28120%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28121%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28122%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28123%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28124%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28125%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28126%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28127%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28128%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28129%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2813%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28130%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28131%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28132%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28133%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28134%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28135%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28136%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28137%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28138%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28139%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2814%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28140%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28141%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28142%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28143%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28144%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28145%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28146%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28147%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28148%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28149%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2815%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28150%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28151%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28152%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28153%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28154%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28155%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28156%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28157%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28158%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28159%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2816%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28160%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28161%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28162%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28163%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28164%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28165%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28166%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28167%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28168%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28169%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2817%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28170%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28171%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28172%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28173%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28174%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28175%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28176%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28177%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28178%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28179%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2818%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28180%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28181%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28182%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28183%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28184%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28185%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28186%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28187%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28188%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28189%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2819%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28190%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28191%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28192%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28193%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28194%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28195%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28196%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28197%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28198%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28199%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%282%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2820%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28200%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28201%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28202%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28203%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28204%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28205%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28206%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28207%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28208%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28209%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2821%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28210%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28211%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28212%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28213%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28214%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28215%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28216%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28217%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28218%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28219%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2822%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28220%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28221%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28222%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28223%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28224%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28225%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28226%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28227%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28228%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28229%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2823%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28230%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28231%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28232%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28233%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28234%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28235%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28236%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28237%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28238%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28239%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2824%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28240%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28241%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28242%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28243%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28244%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28245%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28246%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28247%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28248%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28249%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2825%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28250%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28251%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28252%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28253%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28254%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28255%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28256%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28257%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28258%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28259%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2826%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28260%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28261%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28262%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28263%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28264%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28265%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28266%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28267%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28268%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28269%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2827%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28270%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28271%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28272%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28273%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28274%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28275%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28276%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28277%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28278%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28279%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2828%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28280%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28281%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28282%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28283%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28284%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28285%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28286%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28287%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28288%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28289%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2829%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28290%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28291%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28292%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28293%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28294%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28295%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28296%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28297%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28298%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28299%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%283%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2830%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28300%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28301%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28302%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28303%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28304%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28305%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28306%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28307%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28308%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28309%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2831%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28310%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28311%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28312%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28313%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28314%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28315%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28316%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28317%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28318%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28319%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2832%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28320%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28321%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28322%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28323%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28324%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28325%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28326%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28327%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28328%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28329%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2833%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28330%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28331%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28332%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28333%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28334%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28335%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28336%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28337%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28338%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28339%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2834%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28340%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28341%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28342%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28343%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28344%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28345%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28346%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28347%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28348%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28349%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2835%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28350%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28351%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28352%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28353%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28354%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28355%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28356%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28357%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28358%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28359%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2836%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28360%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28361%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28362%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28363%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28364%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28365%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28366%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28367%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28368%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28369%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2837%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28370%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28371%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28372%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28373%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28374%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28375%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28376%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28377%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28378%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28379%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2838%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28380%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28381%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28382%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28383%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28384%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28385%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28386%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28387%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28388%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28389%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2839%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28390%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28391%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28392%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28393%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28394%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28395%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28396%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28397%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28398%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28399%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%284%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2840%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28400%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28401%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28402%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28403%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28404%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28405%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28406%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28407%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28408%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28409%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2841%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28410%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28411%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28412%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28413%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28414%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28415%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28416%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28417%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28418%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28419%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2842%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28420%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28421%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28422%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28423%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28424%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28425%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28426%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28427%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28428%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28429%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2843%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28430%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28431%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28432%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28433%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28434%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28435%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28436%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28437%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28438%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28439%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2844%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28440%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28441%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28442%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28443%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28444%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28445%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28446%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28447%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28448%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28449%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2845%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28450%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28451%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28452%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28453%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28454%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28455%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28456%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28457%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28458%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28459%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2846%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28460%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28461%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28462%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28463%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28464%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28465%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28466%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28467%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28468%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28469%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2847%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28470%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28471%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28472%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28473%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28474%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28475%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28476%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28477%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28478%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28479%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2848%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28480%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28481%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28482%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28483%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28484%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28485%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28486%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28487%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28488%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28489%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2849%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28490%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28491%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28492%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28493%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28494%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28495%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28496%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28497%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28498%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28499%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%285%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2850%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28500%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28501%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28502%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28503%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28504%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28505%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28506%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28507%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28508%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28509%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2851%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28510%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28511%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28512%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28513%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28514%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28515%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28516%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28517%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28518%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28519%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2852%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28520%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28521%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28522%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28523%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28524%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28525%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28526%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28527%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28528%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28529%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2853%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28530%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28531%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28532%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28533%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28534%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28535%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28536%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28537%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28538%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28539%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2854%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28540%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28541%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28542%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28543%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28544%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28545%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28546%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28547%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28548%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28549%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2855%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28550%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28551%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28552%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28553%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28554%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28555%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28556%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28557%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28558%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28559%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2856%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28560%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28561%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28562%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28563%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28564%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28565%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28566%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28567%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28568%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28569%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2857%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28570%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28571%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28572%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28573%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28574%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28575%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28576%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28577%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28578%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28579%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2858%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28580%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28581%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28582%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28583%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28584%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28585%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28586%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28587%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28588%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28589%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2859%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28590%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28591%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28592%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28593%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28594%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28595%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28596%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28597%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28598%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28599%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%286%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2860%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28600%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28601%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28602%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28603%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28604%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28605%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28606%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28607%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28608%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28609%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2861%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28610%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28611%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28612%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28613%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28614%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28615%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28616%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28617%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28618%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28619%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2862%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28620%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28621%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28622%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28623%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28624%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28625%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28626%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28627%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28628%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28629%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2863%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28630%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28631%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28632%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28633%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28634%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28635%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28636%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28637%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28638%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28639%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2864%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28640%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28641%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28642%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28643%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28644%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28645%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28646%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28647%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28648%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28649%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2865%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28650%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28651%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28652%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28653%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28654%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28655%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28656%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28657%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28658%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28659%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2866%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28660%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28661%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28662%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28663%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28664%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28665%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28666%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28667%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28668%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28669%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2867%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28670%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28671%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28672%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28673%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28674%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28675%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28676%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28677%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28678%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28679%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2868%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28680%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28681%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28682%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28683%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28684%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28685%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28686%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28687%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28688%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28689%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2869%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28690%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28691%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28692%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28693%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28694%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28695%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28696%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28697%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28698%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28699%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%287%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2870%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28700%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28701%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28702%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28703%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28704%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28705%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28706%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28707%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28708%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28709%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2871%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28710%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28711%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28712%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28713%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28714%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28715%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28716%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28717%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28718%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28719%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2872%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28720%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28721%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28722%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28723%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28724%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28725%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28726%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28727%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28728%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28729%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2873%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28730%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28731%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28732%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28733%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28734%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28735%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28736%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28737%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28738%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28739%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2874%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28740%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28741%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28742%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28743%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28744%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28745%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28746%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28747%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28748%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28749%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2875%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28750%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28751%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28752%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28753%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28754%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28755%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28756%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28757%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28758%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28759%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2876%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28760%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28761%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28762%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28763%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28764%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28765%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28766%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28767%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28768%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28769%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2877%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28770%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28771%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28772%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28773%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28774%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28775%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28776%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28777%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28778%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28779%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2878%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28780%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28781%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28782%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28783%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28784%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28785%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28786%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28787%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28788%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28789%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2879%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28790%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28791%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28792%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28793%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28794%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28795%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28796%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28797%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28798%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28799%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%288%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2880%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28800%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28801%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28802%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28803%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28804%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28805%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28806%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28807%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28808%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28809%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2881%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28810%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28811%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28812%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28813%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28814%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28815%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28816%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28817%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28818%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28819%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2882%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28820%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28821%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28822%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28823%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28824%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28825%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28826%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28827%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28828%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28829%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2883%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28830%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28831%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28832%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28833%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28834%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28835%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28836%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28837%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28838%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28839%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2884%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28840%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28841%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28842%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28843%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28844%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28845%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28846%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28847%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28848%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28849%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2885%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28850%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28851%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28852%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28853%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28854%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28855%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28856%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28857%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28858%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28859%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2886%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28860%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28861%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28862%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28863%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28864%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28865%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28866%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28867%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28868%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28869%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2887%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28870%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28871%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28872%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28873%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28874%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28875%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28876%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28877%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28878%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28879%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2888%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28880%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28881%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28882%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28883%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28884%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28885%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28886%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28887%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28888%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28889%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2889%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28890%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28891%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28892%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28893%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28894%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28895%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28896%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28897%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28898%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28899%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%289%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2890%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28900%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28901%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28902%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28903%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28904%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28905%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28906%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28907%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28908%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28909%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2891%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28910%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28911%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28912%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28913%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28914%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28915%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28916%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28917%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28918%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28919%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2892%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28920%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28921%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28922%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28923%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28924%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28925%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28926%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28927%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28928%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28929%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2893%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28930%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28931%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28932%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28933%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28934%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28935%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28936%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28937%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28938%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28939%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2894%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28940%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28941%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28942%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28943%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28944%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28945%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28946%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28947%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28948%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28949%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2895%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28950%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28951%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28952%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28953%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28954%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28955%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28956%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28957%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28958%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28959%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2896%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28960%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28961%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28962%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28963%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28964%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28965%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28966%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28967%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28968%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28969%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2897%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28970%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28971%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28972%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28973%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28974%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28975%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28976%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28977%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28978%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28979%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2898%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28980%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28981%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28982%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28983%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28984%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28985%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28986%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28987%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28988%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28989%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%2899%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28990%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28991%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28992%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28993%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28994%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28995%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28996%29.jpg" />
+    <Content Include="Resources\MoviePosters\a%28997%29.jpg" />
+    <Content Include="Resources\MoviePosters\atest.jpg" />
+    <Content Include="Resources\MoviePosters\Logo.png" />
+    <Content Include="Resources\MoviePosters\Logo_not_background.png" />
+    <Content Include="Resources\MoviePosters\àd.jpg" />
+    <None Include="Resources\nhon.jpg" />
+    <Content Include="Resources\sample\atest.jpg" />
+    <Content Include="Resources\sample\download.jpg" />
+    <Content Include="Resources\sample\a%281%29.jpg" />
+    <Content Include="Resources\sample\sample%281%29.jpg" />
+    <Content Include="Resources\sample\sample%2810%29.jpg" />
+    <Content Include="Resources\sample\sample%28100%29.jpg" />
+    <Content Include="Resources\sample\sample%281000%29.jpg" />
+    <Content Include="Resources\sample\sample%28101%29.jpg" />
+    <Content Include="Resources\sample\sample%28102%29.jpg" />
+    <Content Include="Resources\sample\sample%28103%29.jpg" />
+    <Content Include="Resources\sample\sample%28104%29.jpg" />
+    <Content Include="Resources\sample\sample%28105%29.jpg" />
+    <Content Include="Resources\sample\sample%28106%29.jpg" />
+    <Content Include="Resources\sample\sample%28107%29.jpg" />
+    <Content Include="Resources\sample\sample%28108%29.jpg" />
+    <Content Include="Resources\sample\sample%28109%29.jpg" />
+    <Content Include="Resources\sample\sample%2811%29.jpg" />
+    <Content Include="Resources\sample\sample%28110%29.jpg" />
+    <Content Include="Resources\sample\sample%28111%29.jpg" />
+    <Content Include="Resources\sample\sample%28112%29.jpg" />
+    <Content Include="Resources\sample\sample%28113%29.jpg" />
+    <Content Include="Resources\sample\sample%28114%29.jpg" />
+    <Content Include="Resources\sample\sample%28115%29.jpg" />
+    <Content Include="Resources\sample\sample%28116%29.jpg" />
+    <Content Include="Resources\sample\sample%28117%29.jpg" />
+    <Content Include="Resources\sample\sample%28118%29.jpg" />
+    <Content Include="Resources\sample\sample%28119%29.jpg" />
+    <Content Include="Resources\sample\sample%2812%29.jpg" />
+    <Content Include="Resources\sample\sample%28120%29.jpg" />
+    <Content Include="Resources\sample\sample%28121%29.jpg" />
+    <Content Include="Resources\sample\sample%28122%29.jpg" />
+    <Content Include="Resources\sample\sample%28123%29.jpg" />
+    <Content Include="Resources\sample\sample%28124%29.jpg" />
+    <Content Include="Resources\sample\sample%28125%29.jpg" />
+    <Content Include="Resources\sample\sample%28126%29.jpg" />
+    <Content Include="Resources\sample\sample%28127%29.jpg" />
+    <Content Include="Resources\sample\sample%28128%29.jpg" />
+    <Content Include="Resources\sample\sample%28129%29.jpg" />
+    <Content Include="Resources\sample\sample%2813%29.jpg" />
+    <Content Include="Resources\sample\sample%28130%29.jpg" />
+    <Content Include="Resources\sample\sample%28131%29.jpg" />
+    <Content Include="Resources\sample\sample%28132%29.jpg" />
+    <Content Include="Resources\sample\sample%28133%29.jpg" />
+    <Content Include="Resources\sample\sample%28134%29.jpg" />
+    <Content Include="Resources\sample\sample%28135%29.jpg" />
+    <Content Include="Resources\sample\sample%28136%29.jpg" />
+    <Content Include="Resources\sample\sample%28137%29.jpg" />
+    <Content Include="Resources\sample\sample%28138%29.jpg" />
+    <Content Include="Resources\sample\sample%28139%29.jpg" />
+    <Content Include="Resources\sample\sample%2814%29.jpg" />
+    <Content Include="Resources\sample\sample%28140%29.jpg" />
+    <Content Include="Resources\sample\sample%28141%29.jpg" />
+    <Content Include="Resources\sample\sample%28142%29.jpg" />
+    <Content Include="Resources\sample\sample%28143%29.jpg" />
+    <Content Include="Resources\sample\sample%28144%29.jpg" />
+    <Content Include="Resources\sample\sample%28145%29.jpg" />
+    <Content Include="Resources\sample\sample%28146%29.jpg" />
+    <Content Include="Resources\sample\sample%28147%29.jpg" />
+    <Content Include="Resources\sample\sample%28148%29.jpg" />
+    <Content Include="Resources\sample\sample%28149%29.jpg" />
+    <Content Include="Resources\sample\sample%2815%29.jpg" />
+    <Content Include="Resources\sample\sample%28150%29.jpg" />
+    <Content Include="Resources\sample\sample%28151%29.jpg" />
+    <Content Include="Resources\sample\sample%28152%29.jpg" />
+    <Content Include="Resources\sample\sample%28153%29.jpg" />
+    <Content Include="Resources\sample\sample%28154%29.jpg" />
+    <Content Include="Resources\sample\sample%28155%29.jpg" />
+    <Content Include="Resources\sample\sample%28156%29.jpg" />
+    <Content Include="Resources\sample\sample%28157%29.jpg" />
+    <Content Include="Resources\sample\sample%28158%29.jpg" />
+    <Content Include="Resources\sample\sample%28159%29.jpg" />
+    <Content Include="Resources\sample\sample%2816%29.jpg" />
+    <Content Include="Resources\sample\sample%28160%29.jpg" />
+    <Content Include="Resources\sample\sample%28161%29.jpg" />
+    <Content Include="Resources\sample\sample%28162%29.jpg" />
+    <Content Include="Resources\sample\sample%28163%29.jpg" />
+    <Content Include="Resources\sample\sample%28164%29.jpg" />
+    <Content Include="Resources\sample\sample%28165%29.jpg" />
+    <Content Include="Resources\sample\sample%28166%29.jpg" />
+    <Content Include="Resources\sample\sample%28167%29.jpg" />
+    <Content Include="Resources\sample\sample%28168%29.jpg" />
+    <Content Include="Resources\sample\sample%28169%29.jpg" />
+    <Content Include="Resources\sample\sample%2817%29.jpg" />
+    <Content Include="Resources\sample\sample%28170%29.jpg" />
+    <Content Include="Resources\sample\sample%28171%29.jpg" />
+    <Content Include="Resources\sample\sample%28172%29.jpg" />
+    <Content Include="Resources\sample\sample%28173%29.jpg" />
+    <Content Include="Resources\sample\sample%28174%29.jpg" />
+    <Content Include="Resources\sample\sample%28175%29.jpg" />
+    <Content Include="Resources\sample\sample%28176%29.jpg" />
+    <Content Include="Resources\sample\sample%28177%29.jpg" />
+    <Content Include="Resources\sample\sample%28178%29.jpg" />
+    <Content Include="Resources\sample\sample%28179%29.jpg" />
+    <Content Include="Resources\sample\sample%2818%29.jpg" />
+    <Content Include="Resources\sample\sample%28180%29.jpg" />
+    <Content Include="Resources\sample\sample%28181%29.jpg" />
+    <Content Include="Resources\sample\sample%28182%29.jpg" />
+    <Content Include="Resources\sample\sample%28183%29.jpg" />
+    <Content Include="Resources\sample\sample%28184%29.jpg" />
+    <Content Include="Resources\sample\sample%28185%29.jpg" />
+    <Content Include="Resources\sample\sample%28186%29.jpg" />
+    <Content Include="Resources\sample\sample%28187%29.jpg" />
+    <Content Include="Resources\sample\sample%28188%29.jpg" />
+    <Content Include="Resources\sample\sample%28189%29.jpg" />
+    <Content Include="Resources\sample\sample%2819%29.jpg" />
+    <Content Include="Resources\sample\sample%28190%29.jpg" />
+    <Content Include="Resources\sample\sample%28191%29.jpg" />
+    <Content Include="Resources\sample\sample%28192%29.jpg" />
+    <Content Include="Resources\sample\sample%28193%29.jpg" />
+    <Content Include="Resources\sample\sample%28194%29.jpg" />
+    <Content Include="Resources\sample\sample%28195%29.jpg" />
+    <Content Include="Resources\sample\sample%28196%29.jpg" />
+    <Content Include="Resources\sample\sample%28197%29.jpg" />
+    <Content Include="Resources\sample\sample%28198%29.jpg" />
+    <Content Include="Resources\sample\sample%28199%29.jpg" />
+    <Content Include="Resources\sample\sample%282%29.jpg" />
+    <Content Include="Resources\sample\sample%2820%29.jpg" />
+    <Content Include="Resources\sample\sample%28200%29.jpg" />
+    <Content Include="Resources\sample\sample%28201%29.jpg" />
+    <Content Include="Resources\sample\sample%28202%29.jpg" />
+    <Content Include="Resources\sample\sample%28203%29.jpg" />
+    <Content Include="Resources\sample\sample%28204%29.jpg" />
+    <Content Include="Resources\sample\sample%28205%29.jpg" />
+    <Content Include="Resources\sample\sample%28206%29.jpg" />
+    <Content Include="Resources\sample\sample%28207%29.jpg" />
+    <Content Include="Resources\sample\sample%28208%29.jpg" />
+    <Content Include="Resources\sample\sample%28209%29.jpg" />
+    <Content Include="Resources\sample\sample%2821%29.jpg" />
+    <Content Include="Resources\sample\sample%28210%29.jpg" />
+    <Content Include="Resources\sample\sample%28211%29.jpg" />
+    <Content Include="Resources\sample\sample%28212%29.jpg" />
+    <Content Include="Resources\sample\sample%28213%29.jpg" />
+    <Content Include="Resources\sample\sample%28214%29.jpg" />
+    <Content Include="Resources\sample\sample%28215%29.jpg" />
+    <Content Include="Resources\sample\sample%28216%29.jpg" />
+    <Content Include="Resources\sample\sample%28217%29.jpg" />
+    <Content Include="Resources\sample\sample%28218%29.jpg" />
+    <Content Include="Resources\sample\sample%28219%29.jpg" />
+    <Content Include="Resources\sample\sample%2822%29.jpg" />
+    <Content Include="Resources\sample\sample%28220%29.jpg" />
+    <Content Include="Resources\sample\sample%28221%29.jpg" />
+    <Content Include="Resources\sample\sample%28222%29.jpg" />
+    <Content Include="Resources\sample\sample%28223%29.jpg" />
+    <Content Include="Resources\sample\sample%28224%29.jpg" />
+    <Content Include="Resources\sample\sample%28225%29.jpg" />
+    <Content Include="Resources\sample\sample%28226%29.jpg" />
+    <Content Include="Resources\sample\sample%28227%29.jpg" />
+    <Content Include="Resources\sample\sample%28228%29.jpg" />
+    <Content Include="Resources\sample\sample%28229%29.jpg" />
+    <Content Include="Resources\sample\sample%2823%29.jpg" />
+    <Content Include="Resources\sample\sample%28230%29.jpg" />
+    <Content Include="Resources\sample\sample%28231%29.jpg" />
+    <Content Include="Resources\sample\sample%28232%29.jpg" />
+    <Content Include="Resources\sample\sample%28233%29.jpg" />
+    <Content Include="Resources\sample\sample%28234%29.jpg" />
+    <Content Include="Resources\sample\sample%28235%29.jpg" />
+    <Content Include="Resources\sample\sample%28236%29.jpg" />
+    <Content Include="Resources\sample\sample%28237%29.jpg" />
+    <Content Include="Resources\sample\sample%28238%29.jpg" />
+    <Content Include="Resources\sample\sample%28239%29.jpg" />
+    <Content Include="Resources\sample\sample%2824%29.jpg" />
+    <Content Include="Resources\sample\sample%28240%29.jpg" />
+    <Content Include="Resources\sample\sample%28241%29.jpg" />
+    <Content Include="Resources\sample\sample%28242%29.jpg" />
+    <Content Include="Resources\sample\sample%28243%29.jpg" />
+    <Content Include="Resources\sample\sample%28244%29.jpg" />
+    <Content Include="Resources\sample\sample%28245%29.jpg" />
+    <Content Include="Resources\sample\sample%28246%29.jpg" />
+    <Content Include="Resources\sample\sample%28247%29.jpg" />
+    <Content Include="Resources\sample\sample%28248%29.jpg" />
+    <Content Include="Resources\sample\sample%28249%29.jpg" />
+    <Content Include="Resources\sample\sample%2825%29.jpg" />
+    <Content Include="Resources\sample\sample%28250%29.jpg" />
+    <Content Include="Resources\sample\sample%28251%29.jpg" />
+    <Content Include="Resources\sample\sample%28252%29.jpg" />
+    <Content Include="Resources\sample\sample%28253%29.jpg" />
+    <Content Include="Resources\sample\sample%28254%29.jpg" />
+    <Content Include="Resources\sample\sample%28255%29.jpg" />
+    <Content Include="Resources\sample\sample%28256%29.jpg" />
+    <Content Include="Resources\sample\sample%28257%29.jpg" />
+    <Content Include="Resources\sample\sample%28258%29.jpg" />
+    <Content Include="Resources\sample\sample%28259%29.jpg" />
+    <Content Include="Resources\sample\sample%2826%29.jpg" />
+    <Content Include="Resources\sample\sample%28260%29.jpg" />
+    <Content Include="Resources\sample\sample%28261%29.jpg" />
+    <Content Include="Resources\sample\sample%28262%29.jpg" />
+    <Content Include="Resources\sample\sample%28263%29.jpg" />
+    <Content Include="Resources\sample\sample%28264%29.jpg" />
+    <Content Include="Resources\sample\sample%28265%29.jpg" />
+    <Content Include="Resources\sample\sample%28266%29.jpg" />
+    <Content Include="Resources\sample\sample%28267%29.jpg" />
+    <Content Include="Resources\sample\sample%28268%29.jpg" />
+    <Content Include="Resources\sample\sample%28269%29.jpg" />
+    <Content Include="Resources\sample\sample%2827%29.jpg" />
+    <Content Include="Resources\sample\sample%28270%29.jpg" />
+    <Content Include="Resources\sample\sample%28271%29.jpg" />
+    <Content Include="Resources\sample\sample%28272%29.jpg" />
+    <Content Include="Resources\sample\sample%28273%29.jpg" />
+    <Content Include="Resources\sample\sample%28274%29.jpg" />
+    <Content Include="Resources\sample\sample%28275%29.jpg" />
+    <Content Include="Resources\sample\sample%28276%29.jpg" />
+    <Content Include="Resources\sample\sample%28277%29.jpg" />
+    <Content Include="Resources\sample\sample%28278%29.jpg" />
+    <Content Include="Resources\sample\sample%28279%29.jpg" />
+    <Content Include="Resources\sample\sample%2828%29.jpg" />
+    <Content Include="Resources\sample\sample%28280%29.jpg" />
+    <Content Include="Resources\sample\sample%28281%29.jpg" />
+    <Content Include="Resources\sample\sample%28282%29.jpg" />
+    <Content Include="Resources\sample\sample%28283%29.jpg" />
+    <Content Include="Resources\sample\sample%28284%29.jpg" />
+    <Content Include="Resources\sample\sample%28285%29.jpg" />
+    <Content Include="Resources\sample\sample%28286%29.jpg" />
+    <Content Include="Resources\sample\sample%28287%29.jpg" />
+    <Content Include="Resources\sample\sample%28288%29.jpg" />
+    <Content Include="Resources\sample\sample%28289%29.jpg" />
+    <Content Include="Resources\sample\sample%2829%29.jpg" />
+    <Content Include="Resources\sample\sample%28290%29.jpg" />
+    <Content Include="Resources\sample\sample%28291%29.jpg" />
+    <Content Include="Resources\sample\sample%28292%29.jpg" />
+    <Content Include="Resources\sample\sample%28293%29.jpg" />
+    <Content Include="Resources\sample\sample%28294%29.jpg" />
+    <Content Include="Resources\sample\sample%28295%29.jpg" />
+    <Content Include="Resources\sample\sample%28296%29.jpg" />
+    <Content Include="Resources\sample\sample%28297%29.jpg" />
+    <Content Include="Resources\sample\sample%28298%29.jpg" />
+    <Content Include="Resources\sample\sample%28299%29.jpg" />
+    <Content Include="Resources\sample\sample%283%29.jpg" />
+    <Content Include="Resources\sample\sample%2830%29.jpg" />
+    <Content Include="Resources\sample\sample%28300%29.jpg" />
+    <Content Include="Resources\sample\sample%28301%29.jpg" />
+    <Content Include="Resources\sample\sample%28302%29.jpg" />
+    <Content Include="Resources\sample\sample%28303%29.jpg" />
+    <Content Include="Resources\sample\sample%28304%29.jpg" />
+    <Content Include="Resources\sample\sample%28305%29.jpg" />
+    <Content Include="Resources\sample\sample%28306%29.jpg" />
+    <Content Include="Resources\sample\sample%28307%29.jpg" />
+    <Content Include="Resources\sample\sample%28308%29.jpg" />
+    <Content Include="Resources\sample\sample%28309%29.jpg" />
+    <Content Include="Resources\sample\sample%2831%29.jpg" />
+    <Content Include="Resources\sample\sample%28310%29.jpg" />
+    <Content Include="Resources\sample\sample%28311%29.jpg" />
+    <Content Include="Resources\sample\sample%28312%29.jpg" />
+    <Content Include="Resources\sample\sample%28313%29.jpg" />
+    <Content Include="Resources\sample\sample%28314%29.jpg" />
+    <Content Include="Resources\sample\sample%28315%29.jpg" />
+    <Content Include="Resources\sample\sample%28316%29.jpg" />
+    <Content Include="Resources\sample\sample%28317%29.jpg" />
+    <Content Include="Resources\sample\sample%28318%29.jpg" />
+    <Content Include="Resources\sample\sample%28319%29.jpg" />
+    <Content Include="Resources\sample\sample%2832%29.jpg" />
+    <Content Include="Resources\sample\sample%28320%29.jpg" />
+    <Content Include="Resources\sample\sample%28321%29.jpg" />
+    <Content Include="Resources\sample\sample%28322%29.jpg" />
+    <Content Include="Resources\sample\sample%28323%29.jpg" />
+    <Content Include="Resources\sample\sample%28324%29.jpg" />
+    <Content Include="Resources\sample\sample%28325%29.jpg" />
+    <Content Include="Resources\sample\sample%28326%29.jpg" />
+    <Content Include="Resources\sample\sample%28327%29.jpg" />
+    <Content Include="Resources\sample\sample%28328%29.jpg" />
+    <Content Include="Resources\sample\sample%28329%29.jpg" />
+    <Content Include="Resources\sample\sample%2833%29.jpg" />
+    <Content Include="Resources\sample\sample%28330%29.jpg" />
+    <Content Include="Resources\sample\sample%28331%29.jpg" />
+    <Content Include="Resources\sample\sample%28332%29.jpg" />
+    <Content Include="Resources\sample\sample%28333%29.jpg" />
+    <Content Include="Resources\sample\sample%28334%29.jpg" />
+    <Content Include="Resources\sample\sample%28335%29.jpg" />
+    <Content Include="Resources\sample\sample%28336%29.jpg" />
+    <Content Include="Resources\sample\sample%28337%29.jpg" />
+    <Content Include="Resources\sample\sample%28338%29.jpg" />
+    <Content Include="Resources\sample\sample%28339%29.jpg" />
+    <Content Include="Resources\sample\sample%2834%29.jpg" />
+    <Content Include="Resources\sample\sample%28340%29.jpg" />
+    <Content Include="Resources\sample\sample%28341%29.jpg" />
+    <Content Include="Resources\sample\sample%28342%29.jpg" />
+    <Content Include="Resources\sample\sample%28343%29.jpg" />
+    <Content Include="Resources\sample\sample%28344%29.jpg" />
+    <Content Include="Resources\sample\sample%28345%29.jpg" />
+    <Content Include="Resources\sample\sample%28346%29.jpg" />
+    <Content Include="Resources\sample\sample%28347%29.jpg" />
+    <Content Include="Resources\sample\sample%28348%29.jpg" />
+    <Content Include="Resources\sample\sample%28349%29.jpg" />
+    <Content Include="Resources\sample\sample%2835%29.jpg" />
+    <Content Include="Resources\sample\sample%28350%29.jpg" />
+    <Content Include="Resources\sample\sample%28351%29.jpg" />
+    <Content Include="Resources\sample\sample%28352%29.jpg" />
+    <Content Include="Resources\sample\sample%28353%29.jpg" />
+    <Content Include="Resources\sample\sample%28354%29.jpg" />
+    <Content Include="Resources\sample\sample%28355%29.jpg" />
+    <Content Include="Resources\sample\sample%28356%29.jpg" />
+    <Content Include="Resources\sample\sample%28357%29.jpg" />
+    <Content Include="Resources\sample\sample%28358%29.jpg" />
+    <Content Include="Resources\sample\sample%28359%29.jpg" />
+    <Content Include="Resources\sample\sample%2836%29.jpg" />
+    <Content Include="Resources\sample\sample%28360%29.jpg" />
+    <Content Include="Resources\sample\sample%28361%29.jpg" />
+    <Content Include="Resources\sample\sample%28362%29.jpg" />
+    <Content Include="Resources\sample\sample%28363%29.jpg" />
+    <Content Include="Resources\sample\sample%28364%29.jpg" />
+    <Content Include="Resources\sample\sample%28365%29.jpg" />
+    <Content Include="Resources\sample\sample%28366%29.jpg" />
+    <Content Include="Resources\sample\sample%28367%29.jpg" />
+    <Content Include="Resources\sample\sample%28368%29.jpg" />
+    <Content Include="Resources\sample\sample%28369%29.jpg" />
+    <Content Include="Resources\sample\sample%2837%29.jpg" />
+    <Content Include="Resources\sample\sample%28370%29.jpg" />
+    <Content Include="Resources\sample\sample%28371%29.jpg" />
+    <Content Include="Resources\sample\sample%28372%29.jpg" />
+    <Content Include="Resources\sample\sample%28373%29.jpg" />
+    <Content Include="Resources\sample\sample%28374%29.jpg" />
+    <Content Include="Resources\sample\sample%28375%29.jpg" />
+    <Content Include="Resources\sample\sample%28376%29.jpg" />
+    <Content Include="Resources\sample\sample%28377%29.jpg" />
+    <Content Include="Resources\sample\sample%28378%29.jpg" />
+    <Content Include="Resources\sample\sample%28379%29.jpg" />
+    <Content Include="Resources\sample\sample%2838%29.jpg" />
+    <Content Include="Resources\sample\sample%28380%29.jpg" />
+    <Content Include="Resources\sample\sample%28381%29.jpg" />
+    <Content Include="Resources\sample\sample%28382%29.jpg" />
+    <Content Include="Resources\sample\sample%28383%29.jpg" />
+    <Content Include="Resources\sample\sample%28384%29.jpg" />
+    <Content Include="Resources\sample\sample%28385%29.jpg" />
+    <Content Include="Resources\sample\sample%28386%29.jpg" />
+    <Content Include="Resources\sample\sample%28387%29.jpg" />
+    <Content Include="Resources\sample\sample%28388%29.jpg" />
+    <Content Include="Resources\sample\sample%28389%29.jpg" />
+    <Content Include="Resources\sample\sample%2839%29.jpg" />
+    <Content Include="Resources\sample\sample%28390%29.jpg" />
+    <Content Include="Resources\sample\sample%28391%29.jpg" />
+    <Content Include="Resources\sample\sample%28392%29.jpg" />
+    <Content Include="Resources\sample\sample%28393%29.jpg" />
+    <Content Include="Resources\sample\sample%28394%29.jpg" />
+    <Content Include="Resources\sample\sample%28395%29.jpg" />
+    <Content Include="Resources\sample\sample%28396%29.jpg" />
+    <Content Include="Resources\sample\sample%28397%29.jpg" />
+    <Content Include="Resources\sample\sample%28398%29.jpg" />
+    <Content Include="Resources\sample\sample%28399%29.jpg" />
+    <Content Include="Resources\sample\sample%284%29.jpg" />
+    <Content Include="Resources\sample\sample%2840%29.jpg" />
+    <Content Include="Resources\sample\sample%28400%29.jpg" />
+    <Content Include="Resources\sample\sample%28401%29.jpg" />
+    <Content Include="Resources\sample\sample%28402%29.jpg" />
+    <Content Include="Resources\sample\sample%28403%29.jpg" />
+    <Content Include="Resources\sample\sample%28404%29.jpg" />
+    <Content Include="Resources\sample\sample%28405%29.jpg" />
+    <Content Include="Resources\sample\sample%28406%29.jpg" />
+    <Content Include="Resources\sample\sample%28407%29.jpg" />
+    <Content Include="Resources\sample\sample%28408%29.jpg" />
+    <Content Include="Resources\sample\sample%28409%29.jpg" />
+    <Content Include="Resources\sample\sample%2841%29.jpg" />
+    <Content Include="Resources\sample\sample%28410%29.jpg" />
+    <Content Include="Resources\sample\sample%28411%29.jpg" />
+    <Content Include="Resources\sample\sample%28412%29.jpg" />
+    <Content Include="Resources\sample\sample%28413%29.jpg" />
+    <Content Include="Resources\sample\sample%28414%29.jpg" />
+    <Content Include="Resources\sample\sample%28415%29.jpg" />
+    <Content Include="Resources\sample\sample%28416%29.jpg" />
+    <Content Include="Resources\sample\sample%28417%29.jpg" />
+    <Content Include="Resources\sample\sample%28418%29.jpg" />
+    <Content Include="Resources\sample\sample%28419%29.jpg" />
+    <Content Include="Resources\sample\sample%2842%29.jpg" />
+    <Content Include="Resources\sample\sample%28420%29.jpg" />
+    <Content Include="Resources\sample\sample%28421%29.jpg" />
+    <Content Include="Resources\sample\sample%28422%29.jpg" />
+    <Content Include="Resources\sample\sample%28423%29.jpg" />
+    <Content Include="Resources\sample\sample%28424%29.jpg" />
+    <Content Include="Resources\sample\sample%28425%29.jpg" />
+    <Content Include="Resources\sample\sample%28426%29.jpg" />
+    <Content Include="Resources\sample\sample%28427%29.jpg" />
+    <Content Include="Resources\sample\sample%28428%29.jpg" />
+    <Content Include="Resources\sample\sample%28429%29.jpg" />
+    <Content Include="Resources\sample\sample%2843%29.jpg" />
+    <Content Include="Resources\sample\sample%28430%29.jpg" />
+    <Content Include="Resources\sample\sample%28431%29.jpg" />
+    <Content Include="Resources\sample\sample%28432%29.jpg" />
+    <Content Include="Resources\sample\sample%28433%29.jpg" />
+    <Content Include="Resources\sample\sample%28434%29.jpg" />
+    <Content Include="Resources\sample\sample%28435%29.jpg" />
+    <Content Include="Resources\sample\sample%28436%29.jpg" />
+    <Content Include="Resources\sample\sample%28437%29.jpg" />
+    <Content Include="Resources\sample\sample%28438%29.jpg" />
+    <Content Include="Resources\sample\sample%28439%29.jpg" />
+    <Content Include="Resources\sample\sample%2844%29.jpg" />
+    <Content Include="Resources\sample\sample%28440%29.jpg" />
+    <Content Include="Resources\sample\sample%28441%29.jpg" />
+    <Content Include="Resources\sample\sample%28442%29.jpg" />
+    <Content Include="Resources\sample\sample%28443%29.jpg" />
+    <Content Include="Resources\sample\sample%28444%29.jpg" />
+    <Content Include="Resources\sample\sample%28445%29.jpg" />
+    <Content Include="Resources\sample\sample%28446%29.jpg" />
+    <Content Include="Resources\sample\sample%28447%29.jpg" />
+    <Content Include="Resources\sample\sample%28448%29.jpg" />
+    <Content Include="Resources\sample\sample%28449%29.jpg" />
+    <Content Include="Resources\sample\sample%2845%29.jpg" />
+    <Content Include="Resources\sample\sample%28450%29.jpg" />
+    <Content Include="Resources\sample\sample%28451%29.jpg" />
+    <Content Include="Resources\sample\sample%28452%29.jpg" />
+    <Content Include="Resources\sample\sample%28453%29.jpg" />
+    <Content Include="Resources\sample\sample%28454%29.jpg" />
+    <Content Include="Resources\sample\sample%28455%29.jpg" />
+    <Content Include="Resources\sample\sample%28456%29.jpg" />
+    <Content Include="Resources\sample\sample%28457%29.jpg" />
+    <Content Include="Resources\sample\sample%28458%29.jpg" />
+    <Content Include="Resources\sample\sample%28459%29.jpg" />
+    <Content Include="Resources\sample\sample%2846%29.jpg" />
+    <Content Include="Resources\sample\sample%28460%29.jpg" />
+    <Content Include="Resources\sample\sample%28461%29.jpg" />
+    <Content Include="Resources\sample\sample%28462%29.jpg" />
+    <Content Include="Resources\sample\sample%28463%29.jpg" />
+    <Content Include="Resources\sample\sample%28464%29.jpg" />
+    <Content Include="Resources\sample\sample%28465%29.jpg" />
+    <Content Include="Resources\sample\sample%28466%29.jpg" />
+    <Content Include="Resources\sample\sample%28467%29.jpg" />
+    <Content Include="Resources\sample\sample%28468%29.jpg" />
+    <Content Include="Resources\sample\sample%28469%29.jpg" />
+    <Content Include="Resources\sample\sample%2847%29.jpg" />
+    <Content Include="Resources\sample\sample%28470%29.jpg" />
+    <Content Include="Resources\sample\sample%28471%29.jpg" />
+    <Content Include="Resources\sample\sample%28472%29.jpg" />
+    <Content Include="Resources\sample\sample%28473%29.jpg" />
+    <Content Include="Resources\sample\sample%28474%29.jpg" />
+    <Content Include="Resources\sample\sample%28475%29.jpg" />
+    <Content Include="Resources\sample\sample%28476%29.jpg" />
+    <Content Include="Resources\sample\sample%28477%29.jpg" />
+    <Content Include="Resources\sample\sample%28478%29.jpg" />
+    <Content Include="Resources\sample\sample%28479%29.jpg" />
+    <Content Include="Resources\sample\sample%2848%29.jpg" />
+    <Content Include="Resources\sample\sample%28480%29.jpg" />
+    <Content Include="Resources\sample\sample%28481%29.jpg" />
+    <Content Include="Resources\sample\sample%28482%29.jpg" />
+    <Content Include="Resources\sample\sample%28483%29.jpg" />
+    <Content Include="Resources\sample\sample%28484%29.jpg" />
+    <Content Include="Resources\sample\sample%28485%29.jpg" />
+    <Content Include="Resources\sample\sample%28486%29.jpg" />
+    <Content Include="Resources\sample\sample%28487%29.jpg" />
+    <Content Include="Resources\sample\sample%28488%29.jpg" />
+    <Content Include="Resources\sample\sample%28489%29.jpg" />
+    <Content Include="Resources\sample\sample%2849%29.jpg" />
+    <Content Include="Resources\sample\sample%28490%29.jpg" />
+    <Content Include="Resources\sample\sample%28491%29.jpg" />
+    <Content Include="Resources\sample\sample%28492%29.jpg" />
+    <Content Include="Resources\sample\sample%28493%29.jpg" />
+    <Content Include="Resources\sample\sample%28494%29.jpg" />
+    <Content Include="Resources\sample\sample%28495%29.jpg" />
+    <Content Include="Resources\sample\sample%28496%29.jpg" />
+    <Content Include="Resources\sample\sample%28497%29.jpg" />
+    <Content Include="Resources\sample\sample%28498%29.jpg" />
+    <Content Include="Resources\sample\sample%28499%29.jpg" />
+    <Content Include="Resources\sample\sample%285%29.jpg" />
+    <Content Include="Resources\sample\sample%2850%29.jpg" />
+    <Content Include="Resources\sample\sample%28500%29.jpg" />
+    <Content Include="Resources\sample\sample%28501%29.jpg" />
+    <Content Include="Resources\sample\sample%28502%29.jpg" />
+    <Content Include="Resources\sample\sample%28503%29.jpg" />
+    <Content Include="Resources\sample\sample%28504%29.jpg" />
+    <Content Include="Resources\sample\sample%28505%29.jpg" />
+    <Content Include="Resources\sample\sample%28506%29.jpg" />
+    <Content Include="Resources\sample\sample%28507%29.jpg" />
+    <Content Include="Resources\sample\sample%28508%29.jpg" />
+    <Content Include="Resources\sample\sample%28509%29.jpg" />
+    <Content Include="Resources\sample\sample%2851%29.jpg" />
+    <Content Include="Resources\sample\sample%28510%29.jpg" />
+    <Content Include="Resources\sample\sample%28511%29.jpg" />
+    <Content Include="Resources\sample\sample%28512%29.jpg" />
+    <Content Include="Resources\sample\sample%28513%29.jpg" />
+    <Content Include="Resources\sample\sample%28514%29.jpg" />
+    <Content Include="Resources\sample\sample%28515%29.jpg" />
+    <Content Include="Resources\sample\sample%28516%29.jpg" />
+    <Content Include="Resources\sample\sample%28517%29.jpg" />
+    <Content Include="Resources\sample\sample%28518%29.jpg" />
+    <Content Include="Resources\sample\sample%28519%29.jpg" />
+    <Content Include="Resources\sample\sample%2852%29.jpg" />
+    <Content Include="Resources\sample\sample%28520%29.jpg" />
+    <Content Include="Resources\sample\sample%28521%29.jpg" />
+    <Content Include="Resources\sample\sample%28522%29.jpg" />
+    <Content Include="Resources\sample\sample%28523%29.jpg" />
+    <Content Include="Resources\sample\sample%28524%29.jpg" />
+    <Content Include="Resources\sample\sample%28525%29.jpg" />
+    <Content Include="Resources\sample\sample%28526%29.jpg" />
+    <Content Include="Resources\sample\sample%28527%29.jpg" />
+    <Content Include="Resources\sample\sample%28528%29.jpg" />
+    <Content Include="Resources\sample\sample%28529%29.jpg" />
+    <Content Include="Resources\sample\sample%2853%29.jpg" />
+    <Content Include="Resources\sample\sample%28530%29.jpg" />
+    <Content Include="Resources\sample\sample%28531%29.jpg" />
+    <Content Include="Resources\sample\sample%28532%29.jpg" />
+    <Content Include="Resources\sample\sample%28533%29.jpg" />
+    <Content Include="Resources\sample\sample%28534%29.jpg" />
+    <Content Include="Resources\sample\sample%28535%29.jpg" />
+    <Content Include="Resources\sample\sample%28536%29.jpg" />
+    <Content Include="Resources\sample\sample%28537%29.jpg" />
+    <Content Include="Resources\sample\sample%28538%29.jpg" />
+    <Content Include="Resources\sample\sample%28539%29.jpg" />
+    <Content Include="Resources\sample\sample%2854%29.jpg" />
+    <Content Include="Resources\sample\sample%28540%29.jpg" />
+    <Content Include="Resources\sample\sample%28541%29.jpg" />
+    <Content Include="Resources\sample\sample%28542%29.jpg" />
+    <Content Include="Resources\sample\sample%28543%29.jpg" />
+    <Content Include="Resources\sample\sample%28544%29.jpg" />
+    <Content Include="Resources\sample\sample%28545%29.jpg" />
+    <Content Include="Resources\sample\sample%28546%29.jpg" />
+    <Content Include="Resources\sample\sample%28547%29.jpg" />
+    <Content Include="Resources\sample\sample%28548%29.jpg" />
+    <Content Include="Resources\sample\sample%28549%29.jpg" />
+    <Content Include="Resources\sample\sample%2855%29.jpg" />
+    <Content Include="Resources\sample\sample%28550%29.jpg" />
+    <Content Include="Resources\sample\sample%28551%29.jpg" />
+    <Content Include="Resources\sample\sample%28552%29.jpg" />
+    <Content Include="Resources\sample\sample%28553%29.jpg" />
+    <Content Include="Resources\sample\sample%28554%29.jpg" />
+    <Content Include="Resources\sample\sample%28555%29.jpg" />
+    <Content Include="Resources\sample\sample%28556%29.jpg" />
+    <Content Include="Resources\sample\sample%28557%29.jpg" />
+    <Content Include="Resources\sample\sample%28558%29.jpg" />
+    <Content Include="Resources\sample\sample%28559%29.jpg" />
+    <Content Include="Resources\sample\sample%2856%29.jpg" />
+    <Content Include="Resources\sample\sample%28560%29.jpg" />
+    <Content Include="Resources\sample\sample%28561%29.jpg" />
+    <Content Include="Resources\sample\sample%28562%29.jpg" />
+    <Content Include="Resources\sample\sample%28563%29.jpg" />
+    <Content Include="Resources\sample\sample%28564%29.jpg" />
+    <Content Include="Resources\sample\sample%28565%29.jpg" />
+    <Content Include="Resources\sample\sample%28566%29.jpg" />
+    <Content Include="Resources\sample\sample%28567%29.jpg" />
+    <Content Include="Resources\sample\sample%28568%29.jpg" />
+    <Content Include="Resources\sample\sample%28569%29.jpg" />
+    <Content Include="Resources\sample\sample%2857%29.jpg" />
+    <Content Include="Resources\sample\sample%28570%29.jpg" />
+    <Content Include="Resources\sample\sample%28571%29.jpg" />
+    <Content Include="Resources\sample\sample%28572%29.jpg" />
+    <Content Include="Resources\sample\sample%28573%29.jpg" />
+    <Content Include="Resources\sample\sample%28574%29.jpg" />
+    <Content Include="Resources\sample\sample%28575%29.jpg" />
+    <Content Include="Resources\sample\sample%28576%29.jpg" />
+    <Content Include="Resources\sample\sample%28577%29.jpg" />
+    <Content Include="Resources\sample\sample%28578%29.jpg" />
+    <Content Include="Resources\sample\sample%28579%29.jpg" />
+    <Content Include="Resources\sample\sample%2858%29.jpg" />
+    <Content Include="Resources\sample\sample%28580%29.jpg" />
+    <Content Include="Resources\sample\sample%28581%29.jpg" />
+    <Content Include="Resources\sample\sample%28582%29.jpg" />
+    <Content Include="Resources\sample\sample%28583%29.jpg" />
+    <Content Include="Resources\sample\sample%28584%29.jpg" />
+    <Content Include="Resources\sample\sample%28585%29.jpg" />
+    <Content Include="Resources\sample\sample%28586%29.jpg" />
+    <Content Include="Resources\sample\sample%28587%29.jpg" />
+    <Content Include="Resources\sample\sample%28588%29.jpg" />
+    <Content Include="Resources\sample\sample%28589%29.jpg" />
+    <Content Include="Resources\sample\sample%2859%29.jpg" />
+    <Content Include="Resources\sample\sample%28590%29.jpg" />
+    <Content Include="Resources\sample\sample%28591%29.jpg" />
+    <Content Include="Resources\sample\sample%28592%29.jpg" />
+    <Content Include="Resources\sample\sample%28593%29.jpg" />
+    <Content Include="Resources\sample\sample%28594%29.jpg" />
+    <Content Include="Resources\sample\sample%28595%29.jpg" />
+    <Content Include="Resources\sample\sample%28596%29.jpg" />
+    <Content Include="Resources\sample\sample%28597%29.jpg" />
+    <Content Include="Resources\sample\sample%28598%29.jpg" />
+    <Content Include="Resources\sample\sample%28599%29.jpg" />
+    <Content Include="Resources\sample\sample%286%29.jpg" />
+    <Content Include="Resources\sample\sample%2860%29.jpg" />
+    <Content Include="Resources\sample\sample%28600%29.jpg" />
+    <Content Include="Resources\sample\sample%28601%29.jpg" />
+    <Content Include="Resources\sample\sample%28602%29.jpg" />
+    <Content Include="Resources\sample\sample%28603%29.jpg" />
+    <Content Include="Resources\sample\sample%28604%29.jpg" />
+    <Content Include="Resources\sample\sample%28605%29.jpg" />
+    <Content Include="Resources\sample\sample%28606%29.jpg" />
+    <Content Include="Resources\sample\sample%28607%29.jpg" />
+    <Content Include="Resources\sample\sample%28608%29.jpg" />
+    <Content Include="Resources\sample\sample%28609%29.jpg" />
+    <Content Include="Resources\sample\sample%2861%29.jpg" />
+    <Content Include="Resources\sample\sample%28610%29.jpg" />
+    <Content Include="Resources\sample\sample%28611%29.jpg" />
+    <Content Include="Resources\sample\sample%28612%29.jpg" />
+    <Content Include="Resources\sample\sample%28613%29.jpg" />
+    <Content Include="Resources\sample\sample%28614%29.jpg" />
+    <Content Include="Resources\sample\sample%28615%29.jpg" />
+    <Content Include="Resources\sample\sample%28616%29.jpg" />
+    <Content Include="Resources\sample\sample%28617%29.jpg" />
+    <Content Include="Resources\sample\sample%28618%29.jpg" />
+    <Content Include="Resources\sample\sample%28619%29.jpg" />
+    <Content Include="Resources\sample\sample%2862%29.jpg" />
+    <Content Include="Resources\sample\sample%28620%29.jpg" />
+    <Content Include="Resources\sample\sample%28621%29.jpg" />
+    <Content Include="Resources\sample\sample%28622%29.jpg" />
+    <Content Include="Resources\sample\sample%28623%29.jpg" />
+    <Content Include="Resources\sample\sample%28624%29.jpg" />
+    <Content Include="Resources\sample\sample%28625%29.jpg" />
+    <Content Include="Resources\sample\sample%28626%29.jpg" />
+    <Content Include="Resources\sample\sample%28627%29.jpg" />
+    <Content Include="Resources\sample\sample%28628%29.jpg" />
+    <Content Include="Resources\sample\sample%28629%29.jpg" />
+    <Content Include="Resources\sample\sample%2863%29.jpg" />
+    <Content Include="Resources\sample\sample%28630%29.jpg" />
+    <Content Include="Resources\sample\sample%28631%29.jpg" />
+    <Content Include="Resources\sample\sample%28632%29.jpg" />
+    <Content Include="Resources\sample\sample%28633%29.jpg" />
+    <Content Include="Resources\sample\sample%28634%29.jpg" />
+    <Content Include="Resources\sample\sample%28635%29.jpg" />
+    <Content Include="Resources\sample\sample%28636%29.jpg" />
+    <Content Include="Resources\sample\sample%28637%29.jpg" />
+    <Content Include="Resources\sample\sample%28638%29.jpg" />
+    <Content Include="Resources\sample\sample%28639%29.jpg" />
+    <Content Include="Resources\sample\sample%2864%29.jpg" />
+    <Content Include="Resources\sample\sample%28640%29.jpg" />
+    <Content Include="Resources\sample\sample%28641%29.jpg" />
+    <Content Include="Resources\sample\sample%28642%29.jpg" />
+    <Content Include="Resources\sample\sample%28643%29.jpg" />
+    <Content Include="Resources\sample\sample%28644%29.jpg" />
+    <Content Include="Resources\sample\sample%28645%29.jpg" />
+    <Content Include="Resources\sample\sample%28646%29.jpg" />
+    <Content Include="Resources\sample\sample%28647%29.jpg" />
+    <Content Include="Resources\sample\sample%28648%29.jpg" />
+    <Content Include="Resources\sample\sample%28649%29.jpg" />
+    <Content Include="Resources\sample\sample%2865%29.jpg" />
+    <Content Include="Resources\sample\sample%28650%29.jpg" />
+    <Content Include="Resources\sample\sample%28651%29.jpg" />
+    <Content Include="Resources\sample\sample%28652%29.jpg" />
+    <Content Include="Resources\sample\sample%28653%29.jpg" />
+    <Content Include="Resources\sample\sample%28654%29.jpg" />
+    <Content Include="Resources\sample\sample%28655%29.jpg" />
+    <Content Include="Resources\sample\sample%28656%29.jpg" />
+    <Content Include="Resources\sample\sample%28657%29.jpg" />
+    <Content Include="Resources\sample\sample%28658%29.jpg" />
+    <Content Include="Resources\sample\sample%28659%29.jpg" />
+    <Content Include="Resources\sample\sample%2866%29.jpg" />
+    <Content Include="Resources\sample\sample%28660%29.jpg" />
+    <Content Include="Resources\sample\sample%28661%29.jpg" />
+    <Content Include="Resources\sample\sample%28662%29.jpg" />
+    <Content Include="Resources\sample\sample%28663%29.jpg" />
+    <Content Include="Resources\sample\sample%28664%29.jpg" />
+    <Content Include="Resources\sample\sample%28665%29.jpg" />
+    <Content Include="Resources\sample\sample%28666%29.jpg" />
+    <Content Include="Resources\sample\sample%28667%29.jpg" />
+    <Content Include="Resources\sample\sample%28668%29.jpg" />
+    <Content Include="Resources\sample\sample%28669%29.jpg" />
+    <Content Include="Resources\sample\sample%2867%29.jpg" />
+    <Content Include="Resources\sample\sample%28670%29.jpg" />
+    <Content Include="Resources\sample\sample%28671%29.jpg" />
+    <Content Include="Resources\sample\sample%28672%29.jpg" />
+    <Content Include="Resources\sample\sample%28673%29.jpg" />
+    <Content Include="Resources\sample\sample%28674%29.jpg" />
+    <Content Include="Resources\sample\sample%28675%29.jpg" />
+    <Content Include="Resources\sample\sample%28676%29.jpg" />
+    <Content Include="Resources\sample\sample%28677%29.jpg" />
+    <Content Include="Resources\sample\sample%28678%29.jpg" />
+    <Content Include="Resources\sample\sample%28679%29.jpg" />
+    <Content Include="Resources\sample\sample%2868%29.jpg" />
+    <Content Include="Resources\sample\sample%28680%29.jpg" />
+    <Content Include="Resources\sample\sample%28681%29.jpg" />
+    <Content Include="Resources\sample\sample%28682%29.jpg" />
+    <Content Include="Resources\sample\sample%28683%29.jpg" />
+    <Content Include="Resources\sample\sample%28684%29.jpg" />
+    <Content Include="Resources\sample\sample%28685%29.jpg" />
+    <Content Include="Resources\sample\sample%28686%29.jpg" />
+    <Content Include="Resources\sample\sample%28687%29.jpg" />
+    <Content Include="Resources\sample\sample%28688%29.jpg" />
+    <Content Include="Resources\sample\sample%28689%29.jpg" />
+    <Content Include="Resources\sample\sample%2869%29.jpg" />
+    <Content Include="Resources\sample\sample%28690%29.jpg" />
+    <Content Include="Resources\sample\sample%28691%29.jpg" />
+    <Content Include="Resources\sample\sample%28692%29.jpg" />
+    <Content Include="Resources\sample\sample%28693%29.jpg" />
+    <Content Include="Resources\sample\sample%28694%29.jpg" />
+    <Content Include="Resources\sample\sample%28695%29.jpg" />
+    <Content Include="Resources\sample\sample%28696%29.jpg" />
+    <Content Include="Resources\sample\sample%28697%29.jpg" />
+    <Content Include="Resources\sample\sample%28698%29.jpg" />
+    <Content Include="Resources\sample\sample%28699%29.jpg" />
+    <Content Include="Resources\sample\sample%287%29.jpg" />
+    <Content Include="Resources\sample\sample%2870%29.jpg" />
+    <Content Include="Resources\sample\sample%28700%29.jpg" />
+    <Content Include="Resources\sample\sample%28701%29.jpg" />
+    <Content Include="Resources\sample\sample%28702%29.jpg" />
+    <Content Include="Resources\sample\sample%28703%29.jpg" />
+    <Content Include="Resources\sample\sample%28704%29.jpg" />
+    <Content Include="Resources\sample\sample%28705%29.jpg" />
+    <Content Include="Resources\sample\sample%28706%29.jpg" />
+    <Content Include="Resources\sample\sample%28707%29.jpg" />
+    <Content Include="Resources\sample\sample%28708%29.jpg" />
+    <Content Include="Resources\sample\sample%28709%29.jpg" />
+    <Content Include="Resources\sample\sample%2871%29.jpg" />
+    <Content Include="Resources\sample\sample%28710%29.jpg" />
+    <Content Include="Resources\sample\sample%28711%29.jpg" />
+    <Content Include="Resources\sample\sample%28712%29.jpg" />
+    <Content Include="Resources\sample\sample%28713%29.jpg" />
+    <Content Include="Resources\sample\sample%28714%29.jpg" />
+    <Content Include="Resources\sample\sample%28715%29.jpg" />
+    <Content Include="Resources\sample\sample%28716%29.jpg" />
+    <Content Include="Resources\sample\sample%28717%29.jpg" />
+    <Content Include="Resources\sample\sample%28718%29.jpg" />
+    <Content Include="Resources\sample\sample%28719%29.jpg" />
+    <Content Include="Resources\sample\sample%2872%29.jpg" />
+    <Content Include="Resources\sample\sample%28720%29.jpg" />
+    <Content Include="Resources\sample\sample%28721%29.jpg" />
+    <Content Include="Resources\sample\sample%28722%29.jpg" />
+    <Content Include="Resources\sample\sample%28723%29.jpg" />
+    <Content Include="Resources\sample\sample%28724%29.jpg" />
+    <Content Include="Resources\sample\sample%28725%29.jpg" />
+    <Content Include="Resources\sample\sample%28726%29.jpg" />
+    <Content Include="Resources\sample\sample%28727%29.jpg" />
+    <Content Include="Resources\sample\sample%28728%29.jpg" />
+    <Content Include="Resources\sample\sample%28729%29.jpg" />
+    <Content Include="Resources\sample\sample%2873%29.jpg" />
+    <Content Include="Resources\sample\sample%28730%29.jpg" />
+    <Content Include="Resources\sample\sample%28731%29.jpg" />
+    <Content Include="Resources\sample\sample%28732%29.jpg" />
+    <Content Include="Resources\sample\sample%28733%29.jpg" />
+    <Content Include="Resources\sample\sample%28734%29.jpg" />
+    <Content Include="Resources\sample\sample%28735%29.jpg" />
+    <Content Include="Resources\sample\sample%28736%29.jpg" />
+    <Content Include="Resources\sample\sample%28737%29.jpg" />
+    <Content Include="Resources\sample\sample%28738%29.jpg" />
+    <Content Include="Resources\sample\sample%28739%29.jpg" />
+    <Content Include="Resources\sample\sample%2874%29.jpg" />
+    <Content Include="Resources\sample\sample%28740%29.jpg" />
+    <Content Include="Resources\sample\sample%28741%29.jpg" />
+    <Content Include="Resources\sample\sample%28742%29.jpg" />
+    <Content Include="Resources\sample\sample%28743%29.jpg" />
+    <Content Include="Resources\sample\sample%28744%29.jpg" />
+    <Content Include="Resources\sample\sample%28745%29.jpg" />
+    <Content Include="Resources\sample\sample%28746%29.jpg" />
+    <Content Include="Resources\sample\sample%28747%29.jpg" />
+    <Content Include="Resources\sample\sample%28748%29.jpg" />
+    <Content Include="Resources\sample\sample%28749%29.jpg" />
+    <Content Include="Resources\sample\sample%2875%29.jpg" />
+    <Content Include="Resources\sample\sample%28750%29.jpg" />
+    <Content Include="Resources\sample\sample%28751%29.jpg" />
+    <Content Include="Resources\sample\sample%28752%29.jpg" />
+    <Content Include="Resources\sample\sample%28753%29.jpg" />
+    <Content Include="Resources\sample\sample%28754%29.jpg" />
+    <Content Include="Resources\sample\sample%28755%29.jpg" />
+    <Content Include="Resources\sample\sample%28756%29.jpg" />
+    <Content Include="Resources\sample\sample%28757%29.jpg" />
+    <Content Include="Resources\sample\sample%28758%29.jpg" />
+    <Content Include="Resources\sample\sample%28759%29.jpg" />
+    <Content Include="Resources\sample\sample%2876%29.jpg" />
+    <Content Include="Resources\sample\sample%28760%29.jpg" />
+    <Content Include="Resources\sample\sample%28761%29.jpg" />
+    <Content Include="Resources\sample\sample%28762%29.jpg" />
+    <Content Include="Resources\sample\sample%28763%29.jpg" />
+    <Content Include="Resources\sample\sample%28764%29.jpg" />
+    <Content Include="Resources\sample\sample%28765%29.jpg" />
+    <Content Include="Resources\sample\sample%28766%29.jpg" />
+    <Content Include="Resources\sample\sample%28767%29.jpg" />
+    <Content Include="Resources\sample\sample%28768%29.jpg" />
+    <Content Include="Resources\sample\sample%28769%29.jpg" />
+    <Content Include="Resources\sample\sample%2877%29.jpg" />
+    <Content Include="Resources\sample\sample%28770%29.jpg" />
+    <Content Include="Resources\sample\sample%28771%29.jpg" />
+    <Content Include="Resources\sample\sample%28772%29.jpg" />
+    <Content Include="Resources\sample\sample%28773%29.jpg" />
+    <Content Include="Resources\sample\sample%28774%29.jpg" />
+    <Content Include="Resources\sample\sample%28775%29.jpg" />
+    <Content Include="Resources\sample\sample%28776%29.jpg" />
+    <Content Include="Resources\sample\sample%28777%29.jpg" />
+    <Content Include="Resources\sample\sample%28778%29.jpg" />
+    <Content Include="Resources\sample\sample%28779%29.jpg" />
+    <Content Include="Resources\sample\sample%2878%29.jpg" />
+    <Content Include="Resources\sample\sample%28780%29.jpg" />
+    <Content Include="Resources\sample\sample%28781%29.jpg" />
+    <Content Include="Resources\sample\sample%28782%29.jpg" />
+    <Content Include="Resources\sample\sample%28783%29.jpg" />
+    <Content Include="Resources\sample\sample%28784%29.jpg" />
+    <Content Include="Resources\sample\sample%28785%29.jpg" />
+    <Content Include="Resources\sample\sample%28786%29.jpg" />
+    <Content Include="Resources\sample\sample%28787%29.jpg" />
+    <Content Include="Resources\sample\sample%28788%29.jpg" />
+    <Content Include="Resources\sample\sample%28789%29.jpg" />
+    <Content Include="Resources\sample\sample%2879%29.jpg" />
+    <Content Include="Resources\sample\sample%28790%29.jpg" />
+    <Content Include="Resources\sample\sample%28791%29.jpg" />
+    <Content Include="Resources\sample\sample%28792%29.jpg" />
+    <Content Include="Resources\sample\sample%28793%29.jpg" />
+    <Content Include="Resources\sample\sample%28794%29.jpg" />
+    <Content Include="Resources\sample\sample%28795%29.jpg" />
+    <Content Include="Resources\sample\sample%28796%29.jpg" />
+    <Content Include="Resources\sample\sample%28797%29.jpg" />
+    <Content Include="Resources\sample\sample%28798%29.jpg" />
+    <Content Include="Resources\sample\sample%28799%29.jpg" />
+    <Content Include="Resources\sample\sample%288%29.jpg" />
+    <Content Include="Resources\sample\sample%2880%29.jpg" />
+    <Content Include="Resources\sample\sample%28800%29.jpg" />
+    <Content Include="Resources\sample\sample%28801%29.jpg" />
+    <Content Include="Resources\sample\sample%28802%29.jpg" />
+    <Content Include="Resources\sample\sample%28803%29.jpg" />
+    <Content Include="Resources\sample\sample%28804%29.jpg" />
+    <Content Include="Resources\sample\sample%28805%29.jpg" />
+    <Content Include="Resources\sample\sample%28806%29.jpg" />
+    <Content Include="Resources\sample\sample%28807%29.jpg" />
+    <Content Include="Resources\sample\sample%28808%29.jpg" />
+    <Content Include="Resources\sample\sample%28809%29.jpg" />
+    <Content Include="Resources\sample\sample%2881%29.jpg" />
+    <Content Include="Resources\sample\sample%28810%29.jpg" />
+    <Content Include="Resources\sample\sample%28811%29.jpg" />
+    <Content Include="Resources\sample\sample%28812%29.jpg" />
+    <Content Include="Resources\sample\sample%28813%29.jpg" />
+    <Content Include="Resources\sample\sample%28814%29.jpg" />
+    <Content Include="Resources\sample\sample%28815%29.jpg" />
+    <Content Include="Resources\sample\sample%28816%29.jpg" />
+    <Content Include="Resources\sample\sample%28817%29.jpg" />
+    <Content Include="Resources\sample\sample%28818%29.jpg" />
+    <Content Include="Resources\sample\sample%28819%29.jpg" />
+    <Content Include="Resources\sample\sample%2882%29.jpg" />
+    <Content Include="Resources\sample\sample%28820%29.jpg" />
+    <Content Include="Resources\sample\sample%28821%29.jpg" />
+    <Content Include="Resources\sample\sample%28822%29.jpg" />
+    <Content Include="Resources\sample\sample%28823%29.jpg" />
+    <Content Include="Resources\sample\sample%28824%29.jpg" />
+    <Content Include="Resources\sample\sample%28825%29.jpg" />
+    <Content Include="Resources\sample\sample%28826%29.jpg" />
+    <Content Include="Resources\sample\sample%28827%29.jpg" />
+    <Content Include="Resources\sample\sample%28828%29.jpg" />
+    <Content Include="Resources\sample\sample%28829%29.jpg" />
+    <Content Include="Resources\sample\sample%2883%29.jpg" />
+    <Content Include="Resources\sample\sample%28830%29.jpg" />
+    <Content Include="Resources\sample\sample%28831%29.jpg" />
+    <Content Include="Resources\sample\sample%28832%29.jpg" />
+    <Content Include="Resources\sample\sample%28833%29.jpg" />
+    <Content Include="Resources\sample\sample%28834%29.jpg" />
+    <Content Include="Resources\sample\sample%28835%29.jpg" />
+    <Content Include="Resources\sample\sample%28836%29.jpg" />
+    <Content Include="Resources\sample\sample%28837%29.jpg" />
+    <Content Include="Resources\sample\sample%28838%29.jpg" />
+    <Content Include="Resources\sample\sample%28839%29.jpg" />
+    <Content Include="Resources\sample\sample%2884%29.jpg" />
+    <Content Include="Resources\sample\sample%28840%29.jpg" />
+    <Content Include="Resources\sample\sample%28841%29.jpg" />
+    <Content Include="Resources\sample\sample%28842%29.jpg" />
+    <Content Include="Resources\sample\sample%28843%29.jpg" />
+    <Content Include="Resources\sample\sample%28844%29.jpg" />
+    <Content Include="Resources\sample\sample%28845%29.jpg" />
+    <Content Include="Resources\sample\sample%28846%29.jpg" />
+    <Content Include="Resources\sample\sample%28847%29.jpg" />
+    <Content Include="Resources\sample\sample%28848%29.jpg" />
+    <Content Include="Resources\sample\sample%28849%29.jpg" />
+    <Content Include="Resources\sample\sample%2885%29.jpg" />
+    <Content Include="Resources\sample\sample%28850%29.jpg" />
+    <Content Include="Resources\sample\sample%28851%29.jpg" />
+    <Content Include="Resources\sample\sample%28852%29.jpg" />
+    <Content Include="Resources\sample\sample%28853%29.jpg" />
+    <Content Include="Resources\sample\sample%28854%29.jpg" />
+    <Content Include="Resources\sample\sample%28855%29.jpg" />
+    <Content Include="Resources\sample\sample%28856%29.jpg" />
+    <Content Include="Resources\sample\sample%28857%29.jpg" />
+    <Content Include="Resources\sample\sample%28858%29.jpg" />
+    <Content Include="Resources\sample\sample%28859%29.jpg" />
+    <Content Include="Resources\sample\sample%2886%29.jpg" />
+    <Content Include="Resources\sample\sample%28860%29.jpg" />
+    <Content Include="Resources\sample\sample%28861%29.jpg" />
+    <Content Include="Resources\sample\sample%28862%29.jpg" />
+    <Content Include="Resources\sample\sample%28863%29.jpg" />
+    <Content Include="Resources\sample\sample%28864%29.jpg" />
+    <Content Include="Resources\sample\sample%28865%29.jpg" />
+    <Content Include="Resources\sample\sample%28866%29.jpg" />
+    <Content Include="Resources\sample\sample%28867%29.jpg" />
+    <Content Include="Resources\sample\sample%28868%29.jpg" />
+    <Content Include="Resources\sample\sample%28869%29.jpg" />
+    <Content Include="Resources\sample\sample%2887%29.jpg" />
+    <Content Include="Resources\sample\sample%28870%29.jpg" />
+    <Content Include="Resources\sample\sample%28871%29.jpg" />
+    <Content Include="Resources\sample\sample%28872%29.jpg" />
+    <Content Include="Resources\sample\sample%28873%29.jpg" />
+    <Content Include="Resources\sample\sample%28874%29.jpg" />
+    <Content Include="Resources\sample\sample%28875%29.jpg" />
+    <Content Include="Resources\sample\sample%28876%29.jpg" />
+    <Content Include="Resources\sample\sample%28877%29.jpg" />
+    <Content Include="Resources\sample\sample%28878%29.jpg" />
+    <Content Include="Resources\sample\sample%28879%29.jpg" />
+    <Content Include="Resources\sample\sample%2888%29.jpg" />
+    <Content Include="Resources\sample\sample%28880%29.jpg" />
+    <Content Include="Resources\sample\sample%28881%29.jpg" />
+    <Content Include="Resources\sample\sample%28882%29.jpg" />
+    <Content Include="Resources\sample\sample%28883%29.jpg" />
+    <Content Include="Resources\sample\sample%28884%29.jpg" />
+    <Content Include="Resources\sample\sample%28885%29.jpg" />
+    <Content Include="Resources\sample\sample%28886%29.jpg" />
+    <Content Include="Resources\sample\sample%28887%29.jpg" />
+    <Content Include="Resources\sample\sample%28888%29.jpg" />
+    <Content Include="Resources\sample\sample%28889%29.jpg" />
+    <Content Include="Resources\sample\sample%2889%29.jpg" />
+    <Content Include="Resources\sample\sample%28890%29.jpg" />
+    <Content Include="Resources\sample\sample%28891%29.jpg" />
+    <Content Include="Resources\sample\sample%28892%29.jpg" />
+    <Content Include="Resources\sample\sample%28893%29.jpg" />
+    <Content Include="Resources\sample\sample%28894%29.jpg" />
+    <Content Include="Resources\sample\sample%28895%29.jpg" />
+    <Content Include="Resources\sample\sample%28896%29.jpg" />
+    <Content Include="Resources\sample\sample%28897%29.jpg" />
+    <Content Include="Resources\sample\sample%28898%29.jpg" />
+    <Content Include="Resources\sample\sample%28899%29.jpg" />
+    <Content Include="Resources\sample\sample%289%29.jpg" />
+    <Content Include="Resources\sample\sample%2890%29.jpg" />
+    <Content Include="Resources\sample\sample%28900%29.jpg" />
+    <Content Include="Resources\sample\sample%28901%29.jpg" />
+    <Content Include="Resources\sample\sample%28902%29.jpg" />
+    <Content Include="Resources\sample\sample%28903%29.jpg" />
+    <Content Include="Resources\sample\sample%28904%29.jpg" />
+    <Content Include="Resources\sample\sample%28905%29.jpg" />
+    <Content Include="Resources\sample\sample%28906%29.jpg" />
+    <Content Include="Resources\sample\sample%28907%29.jpg" />
+    <Content Include="Resources\sample\sample%28908%29.jpg" />
+    <Content Include="Resources\sample\sample%28909%29.jpg" />
+    <Content Include="Resources\sample\sample%2891%29.jpg" />
+    <Content Include="Resources\sample\sample%28910%29.jpg" />
+    <Content Include="Resources\sample\sample%28911%29.jpg" />
+    <Content Include="Resources\sample\sample%28912%29.jpg" />
+    <Content Include="Resources\sample\sample%28913%29.jpg" />
+    <Content Include="Resources\sample\sample%28914%29.jpg" />
+    <Content Include="Resources\sample\sample%28915%29.jpg" />
+    <Content Include="Resources\sample\sample%28916%29.jpg" />
+    <Content Include="Resources\sample\sample%28917%29.jpg" />
+    <Content Include="Resources\sample\sample%28918%29.jpg" />
+    <Content Include="Resources\sample\sample%28919%29.jpg" />
+    <Content Include="Resources\sample\sample%2892%29.jpg" />
+    <Content Include="Resources\sample\sample%28920%29.jpg" />
+    <Content Include="Resources\sample\sample%28921%29.jpg" />
+    <Content Include="Resources\sample\sample%28922%29.jpg" />
+    <Content Include="Resources\sample\sample%28923%29.jpg" />
+    <Content Include="Resources\sample\sample%28924%29.jpg" />
+    <Content Include="Resources\sample\sample%28925%29.jpg" />
+    <Content Include="Resources\sample\sample%28926%29.jpg" />
+    <Content Include="Resources\sample\sample%28927%29.jpg" />
+    <Content Include="Resources\sample\sample%28928%29.jpg" />
+    <Content Include="Resources\sample\sample%28929%29.jpg" />
+    <Content Include="Resources\sample\sample%2893%29.jpg" />
+    <Content Include="Resources\sample\sample%28930%29.jpg" />
+    <Content Include="Resources\sample\sample%28931%29.jpg" />
+    <Content Include="Resources\sample\sample%28932%29.jpg" />
+    <Content Include="Resources\sample\sample%28933%29.jpg" />
+    <Content Include="Resources\sample\sample%28934%29.jpg" />
+    <Content Include="Resources\sample\sample%28935%29.jpg" />
+    <Content Include="Resources\sample\sample%28936%29.jpg" />
+    <Content Include="Resources\sample\sample%28937%29.jpg" />
+    <Content Include="Resources\sample\sample%28938%29.jpg" />
+    <Content Include="Resources\sample\sample%28939%29.jpg" />
+    <Content Include="Resources\sample\sample%2894%29.jpg" />
+    <Content Include="Resources\sample\sample%28940%29.jpg" />
+    <Content Include="Resources\sample\sample%28941%29.jpg" />
+    <Content Include="Resources\sample\sample%28942%29.jpg" />
+    <Content Include="Resources\sample\sample%28943%29.jpg" />
+    <Content Include="Resources\sample\sample%28944%29.jpg" />
+    <Content Include="Resources\sample\sample%28945%29.jpg" />
+    <Content Include="Resources\sample\sample%28946%29.jpg" />
+    <Content Include="Resources\sample\sample%28947%29.jpg" />
+    <Content Include="Resources\sample\sample%28948%29.jpg" />
+    <Content Include="Resources\sample\sample%28949%29.jpg" />
+    <Content Include="Resources\sample\sample%2895%29.jpg" />
+    <Content Include="Resources\sample\sample%28950%29.jpg" />
+    <Content Include="Resources\sample\sample%28951%29.jpg" />
+    <Content Include="Resources\sample\sample%28952%29.jpg" />
+    <Content Include="Resources\sample\sample%28953%29.jpg" />
+    <Content Include="Resources\sample\sample%28954%29.jpg" />
+    <Content Include="Resources\sample\sample%28955%29.jpg" />
+    <Content Include="Resources\sample\sample%28956%29.jpg" />
+    <Content Include="Resources\sample\sample%28957%29.jpg" />
+    <Content Include="Resources\sample\sample%28958%29.jpg" />
+    <Content Include="Resources\sample\sample%28959%29.jpg" />
+    <Content Include="Resources\sample\sample%2896%29.jpg" />
+    <Content Include="Resources\sample\sample%28960%29.jpg" />
+    <Content Include="Resources\sample\sample%28961%29.jpg" />
+    <Content Include="Resources\sample\sample%28962%29.jpg" />
+    <Content Include="Resources\sample\sample%28963%29.jpg" />
+    <Content Include="Resources\sample\sample%28964%29.jpg" />
+    <Content Include="Resources\sample\sample%28965%29.jpg" />
+    <Content Include="Resources\sample\sample%28966%29.jpg" />
+    <Content Include="Resources\sample\sample%28967%29.jpg" />
+    <Content Include="Resources\sample\sample%28968%29.jpg" />
+    <Content Include="Resources\sample\sample%28969%29.jpg" />
+    <Content Include="Resources\sample\sample%2897%29.jpg" />
+    <Content Include="Resources\sample\sample%28970%29.jpg" />
+    <Content Include="Resources\sample\sample%28971%29.jpg" />
+    <Content Include="Resources\sample\sample%28972%29.jpg" />
+    <Content Include="Resources\sample\sample%28973%29.jpg" />
+    <Content Include="Resources\sample\sample%28974%29.jpg" />
+    <Content Include="Resources\sample\sample%28975%29.jpg" />
+    <Content Include="Resources\sample\sample%28976%29.jpg" />
+    <Content Include="Resources\sample\sample%28977%29.jpg" />
+    <Content Include="Resources\sample\sample%28978%29.jpg" />
+    <Content Include="Resources\sample\sample%28979%29.jpg" />
+    <Content Include="Resources\sample\sample%2898%29.jpg" />
+    <Content Include="Resources\sample\sample%28980%29.jpg" />
+    <Content Include="Resources\sample\sample%28981%29.jpg" />
+    <Content Include="Resources\sample\sample%28982%29.jpg" />
+    <Content Include="Resources\sample\sample%28983%29.jpg" />
+    <Content Include="Resources\sample\sample%28984%29.jpg" />
+    <Content Include="Resources\sample\sample%28985%29.jpg" />
+    <Content Include="Resources\sample\sample%28986%29.jpg" />
+    <Content Include="Resources\sample\sample%28987%29.jpg" />
+    <Content Include="Resources\sample\sample%28988%29.jpg" />
+    <Content Include="Resources\sample\sample%28989%29.jpg" />
+    <Content Include="Resources\sample\sample%2899%29.jpg" />
+    <Content Include="Resources\sample\sample%28990%29.jpg" />
+    <Content Include="Resources\sample\sample%28991%29.jpg" />
+    <Content Include="Resources\sample\sample%28992%29.jpg" />
+    <Content Include="Resources\sample\sample%28993%29.jpg" />
+    <Content Include="Resources\sample\sample%28994%29.jpg" />
+    <Content Include="Resources\sample\sample%28995%29.jpg" />
+    <Content Include="Resources\sample\sample%28996%29.jpg" />
+    <Content Include="Resources\sample\sample%28997%29.jpg" />
+    <Content Include="Resources\sample\sample%28998%29.jpg" />
+    <Content Include="Resources\sample\sample%28999%29.jpg" />
+    <Content Include="Resources\sample\tai.jpg" />
+    <Content Include="Resources\sample\thai.jpg" />
+    <Content Include="Resources\sample\thai.png" />
+    <None Include="Resources\a.jpg" />
+    <Content Include="Resources\Collapse Arrow_20px.png" />
+    <Content Include="Resources\Expand Arrow_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
+  </Target>
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+</Project>
